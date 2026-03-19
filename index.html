@@ -19,10 +19,9 @@
 body{
     background:#0f2027;
     color:white;
-    overflow-x:hidden;
 }
 
-/* Animated Background */
+/* Animated background */
 canvas{
     position:fixed;
     top:0;
@@ -45,6 +44,20 @@ nav h1{
     color:#00f7ff;
 }
 
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li{
+    cursor:pointer;
+}
+
+nav ul li:hover{
+    color:#00f7ff;
+}
+
 /* Hero */
 .hero{
     height:100vh;
@@ -59,18 +72,16 @@ nav h1{
     font-size:50px;
 }
 
-/* Typing cursor */
 .cursor{
     display:inline-block;
-    background:#00f7ff;
     width:3px;
+    background:#00f7ff;
     margin-left:5px;
     animation:blink 1s infinite;
 }
 
 @keyframes blink{
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:0;}
+    50%{opacity:0;}
 }
 
 .hero p{
@@ -78,7 +89,6 @@ nav h1{
     opacity:0.8;
 }
 
-/* Button */
 .btn{
     margin-top:20px;
     padding:12px 28px;
@@ -86,14 +96,14 @@ nav h1{
     background:#00f7ff;
     color:#000;
     text-decoration:none;
-    transition:0.3s;
+    display:inline-block;
 }
 
 .btn:hover{
     transform:scale(1.1);
 }
 
-/* Section */
+/* Sections */
 .section{
     padding:100px 50px;
     text-align:center;
@@ -112,11 +122,11 @@ nav h1{
     border-radius:18px;
     width:280px;
     backdrop-filter: blur(12px);
-    transition:0.4s;
+    transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-12px);
+    transform:translateY(-10px);
 }
 
 .highlight{
@@ -125,8 +135,7 @@ nav h1{
 
 footer{
     text-align:center;
-    padding:25px;
-    opacity:0.7;
+    padding:20px;
 }
 </style>
 </head>
@@ -136,21 +145,74 @@ footer{
 <canvas id="bg"></canvas>
 
 <nav>
-    <h1>Vijay</h1>
+    <h1>Vijay's Portfolio</h1>
+    <ul>
+        <li onclick="go('home')">Home</li>
+        <li onclick="go('about')">About</li>
+        <li onclick="go('projects')">Projects</li>
+        <li onclick="go('contact')">Contact</li>
+    </ul>
 </nav>
 
-<section class="hero">
-    <h2>
-        <span id="typing"></span><span class="cursor"></span>
-    </h2>
+<section id="home" class="hero">
+    <h2><span id="typing"></span><span class="cursor"></span></h2>
     <p>Founder | Co-Owner | Developer</p>
+    <a class="btn" onclick="go('projects')">Explore My Work</a>
 </section>
 
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p style="margin-top:15px; max-width:700px; margin-inline:auto;">
+        I'm a developer and community builder from the Tamil gaming scene. 
+        Founder of <span class="highlight">Maayanagaram Roleplay</span>, 
+        <span class="highlight">Vorza Nodes</span>, and Co-owner of 
+        <span class="highlight">Demons Ulagam</span>.
+    </p>
+</section>
+
+<section id="projects" class="section">
+    <h2>My Projects</h2>
+    <div class="cards">
+
+        <div class="card">
+            <h3>Maayanagaram Roleplay</h3>
+            <p>No.1 Tamil Minecraft RP server.</p>
+            <a class="btn" href="https://discord.gg/ehfBth6rmb" target="_blank">Join Discord</a>
+        </div>
+
+        <div class="card">
+            <h3>Vorza Nodes</h3>
+            <p>Free & Paid VPS + Minecraft Hosting.</p>
+            <a class="btn" href="https://discord.gg/Bf6nRBqpqp" target="_blank">Join Discord</a>
+        </div>
+
+        <div class="card">
+            <h3>Demons Ulagam</h3>
+            <p>SA-MP modding server community.</p>
+            <a class="btn" href="https://discord.gg/sTJRyT3vRB" target="_blank">Join Discord</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Discord: <span class="highlight">joseph_vijay_52</span></p>
+    <p>E-Mail: <span class="highlight">unknown512867@gmail.com</span></p>
+</section>
+
+<footer>
+    © 2026 Vijay
+</footer>
+
 <script>
-/* Typing Effect */
+function go(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* Typing */
 const text = "Hi, I'm Vijay";
 let i = 0;
-
 function type(){
     if(i < text.length){
         document.getElementById("typing").innerHTML += text.charAt(i);
@@ -160,7 +222,7 @@ function type(){
 }
 type();
 
-/* Animated Background (Particles) */
+/* Background particles */
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
@@ -174,8 +236,8 @@ for(let i=0;i<100;i++){
         x: Math.random()*canvas.width,
         y: Math.random()*canvas.height,
         size: Math.random()*2,
-        speedX: Math.random()*1 -0.5,
-        speedY: Math.random()*1 -0.5
+        dx: Math.random()-0.5,
+        dy: Math.random()-0.5
     });
 }
 
@@ -183,27 +245,21 @@ function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
     particles.forEach(p=>{
-        p.x += p.speedX;
-        p.y += p.speedY;
+        p.x += p.dx;
+        p.y += p.dy;
 
-        ctx.fillStyle = "#00f7ff";
+        ctx.fillStyle="#00f7ff";
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
         ctx.fill();
 
-        if(p.x<0||p.x>canvas.width) p.speedX *= -1;
-        if(p.y<0||p.y>canvas.height) p.speedY *= -1;
+        if(p.x<0||p.x>canvas.width) p.dx*=-1;
+        if(p.y<0||p.y>canvas.height) p.dy*=-1;
     });
 
     requestAnimationFrame(animate);
 }
 animate();
-
-/* Resize fix */
-window.addEventListener("resize", ()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
 </script>
 
 </body>
