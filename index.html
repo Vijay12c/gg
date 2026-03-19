@@ -235,6 +235,95 @@ footer{
     transform:scale(1.1);
     box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
 }
+    .skills{
+    margin-top:40px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.skill{
+    width:150px;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    background:rgba(0,0,0,0.4);
+    border:1px solid rgba(0,247,255,0.3);
+    transition:0.4s;
+    box-shadow:0 0 10px rgba(0,247,255,0.2);
+    position:relative;
+    overflow:hidden;
+}
+
+.skill:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
+}
+
+/* ICON BASE */
+.skill i{
+    font-size:40px;
+    margin-bottom:10px;
+    animation: pulse 2s infinite;
+}
+
+/* BRAND COLORS */
+.python{ color:#3776AB; text-shadow:0 0 10px #3776AB; }
+.html{ color:#e34c26; text-shadow:0 0 10px #e34c26; }
+.css{ color:#264de4; text-shadow:0 0 10px #264de4; }
+.js{ color:#f0db4f; text-shadow:0 0 10px #f0db4f; }
+.game{ color:#ff00ff; text-shadow:0 0 10px #ff00ff; }
+.server{ color:#00ff88; text-shadow:0 0 10px #00ff88; }
+.cloud{ color:#00c3ff; text-shadow:0 0 10px #00c3ff; }
+
+/* TEXT */
+.skill span{
+    display:block;
+    margin-bottom:10px;
+}
+
+/* PROGRESS BAR */
+.bar{
+    width:100%;
+    height:6px;
+    background:rgba(255,255,255,0.1);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.bar div{
+    height:100%;
+    background:var(--neon);
+    box-shadow:0 0 10px var(--neon);
+    animation: load 2s ease-in-out;
+}
+
+/* ANIMATIONS */
+@keyframes pulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.15); }
+}
+
+@keyframes load{
+    from{ width:0; }
+}
+
+/* GLOW LINE EFFECT */
+.skill::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:2px;
+    background:var(--neon);
+    top:0;
+    left:-100%;
+    transition:0.5s;
+}
+
+.skill:hover::before{
+    left:100%;
+}
 </style>
 </head>
 
