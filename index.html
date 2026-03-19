@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <title>Vijay | Founder & Developer</title>
 
 <style>
@@ -197,6 +198,43 @@ footer{
     color:#000;
     box-shadow:0 0 20px var(--neon), 0 0 40px var(--neon);
 }
+    .skills{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.skill{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px;
+    width:120px;
+    border-radius:15px;
+    background:rgba(0,0,0,0.4);
+    border:1px solid rgba(0,247,255,0.3);
+    transition:0.3s;
+    box-shadow:0 0 10px rgba(0,247,255,0.2);
+}
+
+.skill i{
+    font-size:35px;
+    color:var(--neon);
+    margin-bottom:10px;
+    text-shadow:0 0 10px var(--neon);
+}
+
+.skill span{
+    color:white;
+    font-size:14px;
+}
+
+.skill:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
+}
 </style>
 </head>
 
@@ -229,19 +267,47 @@ footer{
         <span class="highlight">Vorza Nodes</span>, and Co-owner of 
         <span class="highlight">Demons Ulagam</span>.
     </p>
-</section>
-
-    <section id="skills" class="section">
+    
+<section id="skills" class="section">
     <h2 class="highlight">My Skills</h2>
 
     <div class="skills">
-        <span>Python</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>Game Development</span>
-        <span>Server Management</span>
-        <span>VPS Hosting</span>
+
+        <div class="skill">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+        </div>
+
+        <div class="skill">
+            <i class="fab fa-html5"></i>
+            <span>HTML</span>
+        </div>
+
+        <div class="skill">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS</span>
+        </div>
+
+        <div class="skill">
+            <i class="fab fa-js"></i>
+            <span>JavaScript</span>
+        </div>
+
+        <div class="skill">
+            <i class="fas fa-gamepad"></i>
+            <span>Game Dev</span>
+        </div>
+
+        <div class="skill">
+            <i class="fas fa-server"></i>
+            <span>Server Mgmt</span>
+        </div>
+
+        <div class="skill">
+            <i class="fas fa-cloud"></i>
+            <span>VPS Hosting</span>
+        </div>
+
     </div>
 </section>
 
