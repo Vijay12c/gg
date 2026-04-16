@@ -50,17 +50,15 @@ h1 {
 
 .card {
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid #00aaff;
   border-radius: 15px;
   padding: 20px;
   margin-top: 20px;
   transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0,170,255,0.4);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0,255,204,0.2);
-}
+
 
 h2 {
   color: #00ffcc;
@@ -99,68 +97,190 @@ footer {
   from { text-shadow: 0 0 10px #00ffcc; }
   to { text-shadow: 0 0 25px #00ffcc, 0 0 40px #00ffcc; }
 }
+.cursor {
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+/* Terminal Green Theme */
+body.green {
+  background: #000;
+  color: #00ff00;
+}
+body.green h1, body.green h2, body.green .links a {
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+body.green .card {
+  border-color: #00ff00;
+  box-shadow: 0 0 15px rgba(0,255,0,0.6);
+}
+
+
+
+/* Matrix Canvas */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,255,0,0.3);
+}
+
+.nav-left {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-right {
+  color: #00ff00;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.navbar a {
+  position: relative;
+  color: #00ff00;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #00ff00;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  text-shadow: 0 0 10px #00ff00;
+}
+
+header {
+  margin-top: 60px;
+}
 </style>
 </head>
-<body>
+<body class="green">
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="#top">Vijay's Portfolio</a>
+  </div>
+</nav>
+<canvas id="matrix"></canvas>
 
-<header>
-  <h1 class="glow">Vijay</h1>
+
+
+<header id="top">
+  <h1 class="glow"><span id="typing"></span><span class="cursor">|</span></h1>
   <p class="subtitle">💻 Developer • 🛠 SysAdmin • Linux Enthusiast 🐧</p>
   <p class="subtitle">Making tasks easier with Automation</p>
 </header>
 
-<section class="section">
-  <h2>About Me</h2>
+<section id="about" class="section">
+  <h2>👤 About Me</h2>
   <div class="card">
-    <p>Software Developer and SysAdmin passionate about building systems, breaking servers, and fixing them better.</p>
+    <p>Software Developer & SysAdmin driven by building resilient systems, pushing infrastructure to its limits, and coming back stronger with smarter fixes.</p>
   </div>
 </section>
 
-<section class="section">
-  <h2>Skills</h2>
+<section id="skills" class="section">
+  <h2>🧠 Skills</h2>
   <div class="card skills">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>C++</span>
-    <span>JavaScript</span>
-    <span>Python</span>
-    <span>Lua</span>
-  </div>
+  <p><strong>💻 Dev</strong></p>
+  <span>🌐 HTML</span>
+  <span>🎨 CSS</span>
+  <span>⚙️ C++</span>
+  <span>🟨 JavaScript</span>
+  <span>🐍 Python</span>
+  <span>🌙 Lua</span>
+  <span>🌐 Web Developing</span>
+  <span>🤖 Discord Bot Developer</span>
+
+  <p style="margin-top:15px;"><strong>🛠 Infra</strong></p>
+  <span>🖥️ Server Hosting</span>
+
+  <p style="margin-top:15px;"><strong>🎮 Gaming</strong></p>
+  <span>⛏️ Minecraft Developing</span>
+  <span>🧱 Roblox Game Developing</span>
+</div>
 </section>
 
-<section class="section">
-  <h2>Projects & Roles</h2>
+<section id="projects" class="section">
+  <h2>🚀 Projects & Roles</h2>
   <div class="card">
-    <p><strong>Phoenix Host</strong> (Founder)</p>
+    <p><strong>🐦‍🔥 Phoenix Host</strong> (Founder)</p>
     <div class="links">
       <a href="https://discord.gg/9hHcN2rmrQ" target="_blank">Join Discord</a>
     </div>
   </div>
 
   <div class="card">
-    <p><strong>Frozen MC</strong> (Owner)</p>
+    <p><strong>🥶 Frozen MC</strong> (Owner)</p>
     <div class="links">
       <a href="https://discord.gg/khMHW2NCZ6" target="_blank">Join Discord</a>
     </div>
   </div>
 
   <div class="card">
-    <p><strong>Frozen Mods</strong> (Owner)</p>
+    <p><strong>📝 Frozen Mods</strong> (Owner)</p>
     <div class="links">
       <a href="https://discord.gg/ZpYZWcgUTN" target="_blank">Join Discord</a>
     </div>
   </div>
 
   <div class="card">
-    <p><strong>SK Family</strong> (Admin)</p>
+    <p><strong>🫂 SK Family</strong> (Admin)</p>
     <div class="links">
       <a href="https://discord.gg/69U23JAJTD" target="_blank">Join Discord</a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Contact</h2>
+<section id="contact" class="section">
+  <h2>📬 Contact</h2>
   <div class="card">
     <p><strong>Discord:</strong> joseph_vijay_52.exe</p>
     <p><strong>Email:</strong> unknown512867@gmail.com</p>
@@ -171,6 +291,103 @@ footer {
   <p>© 2026 Vijay | ! V I J A Y⚡</p>
 </footer>
 
+<script>
+
+
+// MATRIX EFFECT
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = Array.from({length: columns}).fill(1);
+
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#0f0";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+}
+setInterval(drawMatrix, 33);
+
+// START TYPING IMMEDIATELY
+setTimeout(typeLoop, 500);
+
+// TYPING EFFECT
+const texts = [
+  { text: "Hi! I'm Vijay", typeMin: 40, typeMax: 80, delMin: 25, delMax: 55 },
+  { text: "Developer • SysAdmin", typeMin: 30, typeMax: 60, delMin: 20, delMax: 45 },
+  { text: "Linux Enthusiast 🐧", typeMin: 45, typeMax: 90, delMin: 25, delMax: 50 },
+  { text: "Automation Lover", typeMin: 35, typeMax: 70, delMin: 20, delMax: 45 }
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const el = document.getElementById("typing");
+
+function playSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.value = 800;
+    gain.gain.value = 0.02;
+    osc.start();
+    osc.stop(ctx.currentTime + 0.02);
+  } catch (e) {}
+}
+
+function randomSpeed(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function typeLoop() {
+  const current = texts[textIndex];
+  const currentText = current.text;
+
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
+
+  el.innerHTML = currentText.substring(0, charIndex);
+  playSound();
+
+  // DIFFERENT SPEED PER SENTENCE
+  let speed = isDeleting
+    ? randomSpeed(current.delMin, current.delMax)
+    : randomSpeed(current.typeMin, current.typeMax);
+
+  if (!isDeleting && charIndex === currentText.length) {
+    speed = 900;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    speed = 400;
+  }
+
+  setTimeout(typeLoop, speed);
+}
+
+// moved to boot flow
+</script>
 </body>
 </html>
-
