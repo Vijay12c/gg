@@ -3,478 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<title>Vijay | Founder & Developer</title>
-
+<title>Vijay | Portfolio</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500&display=swap');
 
-:root{
-    --neon:#00f7ff;
-    --bg:#0f2027;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background:var(--bg);
-    color:white;
-    overflow-x:hidden;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #eaeaea;
 }
 
-/* Animated background */
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
 }
 
-/* Navbar */
-nav{
-    display:flex;
-    justify-content:space-between;
-    padding:20px 50px;
-    position:fixed;
-    width:100%;
-    backdrop-filter: blur(10px);
-    z-index:1000;
-    border-bottom:1px solid rgba(0,247,255,0.2);
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: #00ffcc;
+  text-shadow: 0 0 20px #00ffcc;
 }
 
-nav h1{
-    color:var(--neon);
-    text-shadow:0 0 10px var(--neon),0 0 30px var(--neon);
+.subtitle {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #aaa;
 }
 
-nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
+.section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-nav ul li{
-    cursor:pointer;
-    position:relative;
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  transition: 0.3s;
 }
 
-nav ul li::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0%;
-    height:2px;
-    background:var(--neon);
-    transition:0.3s;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,255,204,0.2);
 }
 
-nav ul li:hover::after{
-    width:100%;
+h2 {
+  color: #00ffcc;
+  margin-bottom: 10px;
 }
 
-/* Hero */
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
+.skills span {
+  display: inline-block;
+  background: #111;
+  border: 1px solid #00ffcc;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 0.9rem;
 }
 
-.hero h2{
-    font-size:50px;
-    text-shadow:0 0 10px var(--neon),0 0 30px var(--neon);
+.links a {
+  display: block;
+  color: #00ffcc;
+  text-decoration: none;
+  margin: 5px 0;
 }
 
-/* Typing cursor */
-.cursor{
-    display:inline-block;
-    width:3px;
-    background:var(--neon);
-    margin-left:5px;
-    animation:blink 1s infinite;
-    box-shadow:0 0 10px var(--neon);
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #111;
+  color: #666;
 }
 
-@keyframes blink{
-    50%{opacity:0;}
+.glow {
+  animation: glow 2s infinite alternate;
 }
 
-.hero p{
-    margin-top:10px;
-    opacity:0.8;
-}
-
-/* Button */
-.btn{
-    margin-top:20px;
-    padding:12px 28px;
-    border-radius:30px;
-    border:2px solid var(--neon);
-    color:var(--neon);
-    text-decoration:none;
-    display:inline-block;
-    transition:0.3s;
-    box-shadow:0 0 10px var(--neon);
-}
-
-.btn:hover{
-    background:var(--neon);
-    color:#000;
-    box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
-    transform:scale(1.1);
-}
-
-/* Sections */
-.section{
-    padding:100px 50px;
-    text-align:center;
-}
-
-/* Cards */
-.cards{
-    display:flex;
-    gap:25px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.card{
-    background:rgba(0,0,0,0.4);
-    padding:25px;
-    border-radius:15px;
-    width:280px;
-    backdrop-filter: blur(10px);
-    transition:0.4s;
-    border:1px solid rgba(0,247,255,0.3);
-    box-shadow:0 0 10px rgba(0,247,255,0.2);
-}
-
-.card:hover{
-    transform:translateY(-12px) scale(1.05);
-    box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
-}
-
-/* Highlight */
-.highlight{
-    color:var(--neon);
-    text-shadow:0 0 10px var(--neon);
-}
-
-/* Footer */
-footer{
-    text-align:center;
-    padding:20px;
-    border-top:1px solid rgba(0,247,255,0.2);
-}
-    .skills{
-    margin-top:30px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
-
-.skills span{
-    padding:10px 20px;
-    border:1px solid rgba(0,247,255,0.4);
-    border-radius:25px;
-    color:var(--neon);
-    box-shadow:0 0 10px rgba(0,247,255,0.3);
-    transition:0.3s;
-    cursor:default;
-}
-
-.skills span:hover{
-    background:var(--neon);
-    color:#000;
-    box-shadow:0 0 20px var(--neon), 0 0 40px var(--neon);
-}
-    .skills{
-    margin-top:30px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
-}
-
-.skill{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:20px;
-    width:120px;
-    border-radius:15px;
-    background:rgba(0,0,0,0.4);
-    border:1px solid rgba(0,247,255,0.3);
-    transition:0.3s;
-    box-shadow:0 0 10px rgba(0,247,255,0.2);
-}
-
-.skill i{
-    font-size:35px;
-    color:var(--neon);
-    margin-bottom:10px;
-    text-shadow:0 0 10px var(--neon);
-}
-
-.skill span{
-    color:white;
-    font-size:14px;
-}
-
-.skill:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
-}
-    .skills{
-    margin-top:40px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-}
-
-.skill{
-    width:150px;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    background:rgba(0,0,0,0.4);
-    border:1px solid rgba(0,247,255,0.3);
-    transition:0.4s;
-    box-shadow:0 0 10px rgba(0,247,255,0.2);
-    position:relative;
-    overflow:hidden;
-}
-
-.skill:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
-}
-
-/* ICON BASE */
-.skill i{
-    font-size:40px;
-    margin-bottom:10px;
-    animation: pulse 2s infinite;
-}
-
-/* BRAND COLORS */
-.python{ color:#3776AB; text-shadow:0 0 10px #3776AB; }
-.html{ color:#e34c26; text-shadow:0 0 10px #e34c26; }
-.css{ color:#264de4; text-shadow:0 0 10px #264de4; }
-.js{ color:#f0db4f; text-shadow:0 0 10px #f0db4f; }
-.game{ color:#ff00ff; text-shadow:0 0 10px #ff00ff; }
-.server{ color:#00ff88; text-shadow:0 0 10px #00ff88; }
-.cloud{ color:#00c3ff; text-shadow:0 0 10px #00c3ff; }
-
-/* TEXT */
-.skill span{
-    display:block;
-    margin-bottom:10px;
-}
-
-/* ANIMATIONS */
-@keyframes pulse{
-    0%,100%{ transform:scale(1); }
-    50%{ transform:scale(1.15); }
-}
-
-@keyframes load{
-    from{ width:0; }
-}
-
-/* GLOW LINE EFFECT */
-.skill::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:2px;
-    background:var(--neon);
-    top:0;
-    left:-100%;
-    transition:0.5s;
-}
-
-.skill:hover::before{
-    left:100%;
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00ffcc; }
+  to { text-shadow: 0 0 25px #00ffcc, 0 0 40px #00ffcc; }
 }
 </style>
 </head>
-
 <body>
 
-<canvas id="bg"></canvas>
+<header>
+  <h1 class="glow">Vijay</h1>
+  <p class="subtitle">💻 Developer • 🛠 SysAdmin • Linux Enthusiast 🐧</p>
+  <p class="subtitle">Making tasks easier with Automation</p>
+</header>
 
-<nav>
-    <h1>Vijay's Portfolio</h1>
-    <ul>
-        <li onclick="go('home')">Home</li>
-        <li onclick="go('about')">About</li>
-        <li onclick="go('projects')">Projects</li>
-        <li onclick="go('contact')">Contact</li>
-        <li onclick="go('skills')">Skills</li>
-    </ul>
-</nav>
-
-<section id="home" class="hero">
-    <h2><span id="typing"></span><span class="cursor"></span></h2>
-    <p>Founder | Co-Owner | Developer</p>
-    <a class="btn" onclick="go('projects')">Explore My Work</a>
+<section class="section">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>Software Developer and SysAdmin passionate about building systems, breaking servers, and fixing them better.</p>
+  </div>
 </section>
 
-<section id="about" class="section">
-    <h2 class="highlight">About Me</h2>
-    <p style="margin-top:15px; max-width:700px; margin-inline:auto;">
-        I'm a developer and community builder from the Tamil gaming scene. 
-        Founder of <span class="highlight">Maayanagaram Roleplay</span>, 
-        <span class="highlight">Vorza Nodes</span>, and Co-owner of 
-        <span class="highlight">Demons Ulagam</span>.
-    </p>
-    
-<section id="skills" class="section">
-    <h2 class="highlight">My Skills</h2>
+<section class="section">
+  <h2>Skills</h2>
+  <div class="card skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>C++</span>
+    <span>JavaScript</span>
+    <span>Python</span>
+    <span>Lua</span>
+  </div>
+</section>
 
-    <div class="skills">
-
-        <div class="skill">
-            <i class="fab fa-python python"></i>
-            <span>Python</span>
-        </div>
-
-        <div class="skill">
-            <i class="fab fa-html5 html"></i>
-            <span>HTML</span>
-        </div>
-
-        <div class="skill">
-            <i class="fab fa-css3-alt css"></i>
-            <span>CSS</span>
-        </div>
-
-        <div class="skill">
-            <i class="fab fa-js js"></i>
-            <span>JavaScript</span>
-        </div>
-
-        <div class="skill">
-            <i class="fas fa-gamepad game"></i>
-            <span>Game Dev</span>
-        </div>
-
-        <div class="skill">
-            <i class="fas fa-server server"></i>
-            <span>Server Management</span>
-        </div>
-
-        <div class="skill">
-            <i class="fas fa-cloud cloud"></i>
-            <span>VPS Hosting</span>
-        </div>
-
+<section class="section">
+  <h2>Projects & Roles</h2>
+  <div class="card">
+    <p><strong>Phoenix Host</strong> (Founder)</p>
+    <div class="links">
+      <a href="https://discord.gg/9hHcN2rmrQ" target="_blank">Join Discord</a>
     </div>
-</section>
+  </div>
 
-<section id="projects" class="section">
-    <h2 class="highlight">My Projects</h2>
-    <div class="cards">
-
-        <div class="card">
-            <h3>Maayanagaram Roleplay</h3>
-            <p>No.1 Tamil Minecraft RP server.</p>
-            <a class="btn" href="https://discord.gg/ehfBth6rmb" target="_blank">Join Discord</a>
-        </div>
-
-        <div class="card">
-            <h3>Vorza Nodes</h3>
-            <p>Free & Paid VPS + Minecraft Hosting.</p>
-            <a class="btn" href="https://discord.gg/Bf6nRBqpqp" target="_blank">Join Discord</a>
-        </div>
-
-        <div class="card">
-            <h3>Demons Ulagam</h3>
-            <p>SA-MP modding server community.</p>
-            <a class="btn" href="https://discord.gg/sTJRyT3vRB" target="_blank">Join Discord</a>
-        </div>
-
+  <div class="card">
+    <p><strong>Frozen MC</strong> (Owner)</p>
+    <div class="links">
+      <a href="https://discord.gg/khMHW2NCZ6" target="_blank">Join Discord</a>
     </div>
+  </div>
+
+  <div class="card">
+    <p><strong>Frozen Mods</strong> (Owner)</p>
+    <div class="links">
+      <a href="https://discord.gg/ZpYZWcgUTN" target="_blank">Join Discord</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>SK Family</strong> (Admin)</p>
+    <div class="links">
+      <a href="https://discord.gg/69U23JAJTD" target="_blank">Join Discord</a>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="section">
-    <h2 class="highlight">Contact Me</h2>
-    <p>Discord: <span class="highlight">joseph_vijay_52</span></p>
-    <p>E-Mail: <span class="highlight">unknown512867@gmail.com</span></p>
+<section class="section">
+  <h2>Contact</h2>
+  <div class="card">
+    <p><strong>Discord:</strong> joseph_vijay_52.exe</p>
+    <p><strong>Email:</strong> unknown512867@gmail.com</p>
+  </div>
 </section>
 
 <footer>
-    © 2026 Vijay
+  <p>© 2026 Vijay | ! V I J A Y⚡</p>
 </footer>
-
-<script>
-function go(id){
-    document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-/* Typing */
-const text = "Hi, I'm Vijay";
-let i = 0;
-function type(){
-    if(i < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, 80);
-    }
-}
-type();
-
-/* Particle Background */
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for(let i=0;i<100;i++){
-    particles.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        size: Math.random()*2,
-        dx: Math.random()-0.5,
-        dy: Math.random()-0.5
-    });
-}
-
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    particles.forEach(p=>{
-        p.x += p.dx;
-        p.y += p.dy;
-
-        ctx.fillStyle="#00f7ff";
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-        ctx.fill();
-
-        if(p.x<0||p.x>canvas.width) p.dx*=-1;
-        if(p.y<0||p.y>canvas.height) p.dy*=-1;
-    });
-
-    requestAnimationFrame(animate);
-}
-animate();
-</script>
 
 </body>
 </html>
+
