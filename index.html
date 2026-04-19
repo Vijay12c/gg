@@ -179,6 +179,19 @@ html {
   text-shadow: 0 0 10px #00ff00;
 }
 
+  /* GRID BACKGROUND */
+  
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(#00ff00 1px, transparent 1px),
+                    linear-gradient(90deg, #00ff00 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  z-index: -1;
+}
+
 header {
   margin-top: 60px;
 }
