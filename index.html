@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vijay | Portfolio</title>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500&display=swap');
 
@@ -14,36 +13,13 @@
   box-sizing: border-box;
 }
 
-/* ✅ Animated Gradient Background */
-html {
-  background: linear-gradient(270deg, #000000, #001a1a, #000000);
-  background-size: 600% 600%;
-  animation: gradientMove 12s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 body {
   font-family: 'Inter', sans-serif;
-  background: transparent;
+  background: #0a0a0a;
   color: #eaeaea;
 }
 
-/* Header */
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Text */
+background: radial-gradient(circle at center, #111 0%, #000 100%);
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
@@ -57,35 +33,29 @@ h1 {
   color: #aaa;
 }
 
-/* Sections */
 .section {
   padding: 60px 20px;
   max-width: 1000px;
   margin: auto;
 }
 
-/* Cards */
 .card {
-  background: rgba(0,0,0,0.5);
-  border: 1px solid #00ff00;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #00aaff;
   border-radius: 15px;
   padding: 20px;
   margin-top: 20px;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(0,255,0,0.4);
+  box-shadow: 0 0 10px rgba(0,170,255,0.4);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(0,255,0,0.8);
-}
+
 
 h2 {
   color: #00ffcc;
   margin-bottom: 10px;
 }
 
-/* Skills */
 .skills span {
   display: inline-block;
   background: #111;
@@ -96,7 +66,6 @@ h2 {
   font-size: 0.9rem;
 }
 
-/* Links */
 .links a {
   display: block;
   color: #00ffcc;
@@ -104,7 +73,6 @@ h2 {
   margin: 5px 0;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 20px;
@@ -112,7 +80,6 @@ footer {
   color: #666;
 }
 
-/* Glow Animation */
 .glow {
   animation: glow 2s infinite alternate;
 }
@@ -121,8 +88,6 @@ footer {
   from { text-shadow: 0 0 10px #00ffcc; }
   to { text-shadow: 0 0 25px #00ffcc, 0 0 40px #00ffcc; }
 }
-
-/* Cursor */
 .cursor {
   display: inline-block;
   margin-left: 5px;
@@ -133,8 +98,20 @@ footer {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
 }
+/* Terminal Green Theme */
+body.green {
+  background: #000;
+  color: #00ff00;
+}
+body.green h1, body.green h2, body.green .links a {
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+body.green .card {
+  border-color: #00ff00;
+  box-shadow: 0 0 15px rgba(0,255,0,0.6);
+}
 
-/* Navbar */
 html {
   scroll-behavior: smooth;
 }
@@ -193,15 +170,23 @@ html {
   text-shadow: 0 0 10px #00ff00;
 }
 
-/* Fix for navbar spacing */
+html {
+  background: linear-gradient(270deg, #000000, #001a1a, #000000);
+  background-size: 600% 600%;
+  animation: gradientMove 12s ease infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 header {
   margin-top: 60px;
 }
 </style>
 </head>
-
-<body>
-
+<body class="green">
 <nav class="navbar">
   <div class="nav-left">
     <a href="#about">About</a>
@@ -213,6 +198,9 @@ header {
     <a href="#top">Vijay's Portfolio</a>
   </div>
 </nav>
+<canvas id="matrix"></canvas>
+
+
 
 <header id="top">
   <h1 class="glow"><span id="typing"></span><span class="cursor">|</span></h1>
@@ -223,41 +211,61 @@ header {
 <section id="about" class="section">
   <h2>👤 About Me</h2>
   <div class="card">
-    <p>I build automation tools, manage VPS infrastructure, and break systems just to rebuild them smarter.</p>
+    <p>Software Developer & SysAdmin driven by building resilient systems, pushing infrastructure to its limits, and coming back stronger with smarter fixes.</p>
   </div>
 </section>
 
 <section id="skills" class="section">
   <h2>🧠 Skills</h2>
   <div class="card skills">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>C++</span>
-    <span>JavaScript</span>
-    <span>Python</span>
-    <span>Lua</span>
-    <span>Server Hosting</span>
-    <span>Discord Bots</span>
-  </div>
+  <p><strong>💻 Dev</strong></p>
+  <span>🌐 HTML</span>
+  <span>🎨 CSS</span>
+  <span>⚙️ C++</span>
+  <span>🟨 JavaScript</span>
+  <span>🐍 Python</span>
+  <span>🌙 Lua</span>
+  <span>🌐 Web Developing</span>
+  <span>🤖 Discord Bot Developer</span>
+
+  <p style="margin-top:15px;"><strong>🛠 Infra</strong></p>
+  <span>🖥️ Server Hosting</span>
+
+  <p style="margin-top:15px;"><strong>🎮 Gaming</strong></p>
+  <span>⛏️ Minecraft Developing</span>
+  <span>🧱 Roblox Game Developing</span>
+</div>
 </section>
 
 <section id="projects" class="section">
-  <h2>🚀 PHOENIX NETWORK</h2>
-
+  <h2>🚀 PHOENIX NETWORK </h2>
   <div class="card">
-    <p><strong>Phoenix Host</strong></p>
+    <p><strong>🐦‍🔥 Phoenix Host</strong> (Founder)</p>
     <div class="links">
-      <a href="https://discord.gg/Bf6nRBqpqp" target="_blank">Join Discord</a>
+      <a href=" https://discord.gg/Bf6nRBqpqp" target="_blank">Join Discord</a>
     </div>
   </div>
 
   <div class="card">
-    <p><strong>Phoenix MC</strong></p>
+    <p><strong>⚡ Phoenix MC</strong> (Founder)</p>
     <div class="links">
       <a href="https://discord.gg/2rFsWzyARJ" target="_blank">Join Discord</a>
     </div>
   </div>
 
+  <div class="card">
+    <p><strong>📝 Phoenix Customs</strong> (Founder)</p>
+    <div class="links">
+      <a href="https://discord.gg/synCvk8sUB" target="_blank">Join Discord</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>🫂 Phoenix Community</strong> (Founder)</p>
+    <div class="links">
+      <a href=" https://discord.gg/MBJzRXePjY" target="_blank">Join Discord</a>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="section">
@@ -269,45 +277,77 @@ header {
 </section>
 
 <footer>
-  <p>© 2026 Vijay</p>
+  <p>© 2026 Vijay | ! V I J A Y⚡</p>
 </footer>
 
 <script>
+
+
+// START TYPING IMMEDIATELY
+setTimeout(typeLoop, 500);
+
+// TYPING EFFECT
 const texts = [
-  "Hi! I'm Vijay",
-  "Developer • SysAdmin",
-  "Linux Enthusiast 🐧",
-  "Automation Lover"
+  { text: "Hi! I'm Vijay", typeMin: 40, typeMax: 80, delMin: 25, delMax: 55 },
+  { text: "Developer • SysAdmin", typeMin: 30, typeMax: 60, delMin: 20, delMax: 45 },
+  { text: "Linux Enthusiast 🐧", typeMin: 45, typeMax: 90, delMin: 25, delMax: 50 },
+  { text: "Automation Lover", typeMin: 35, typeMax: 70, delMin: 20, delMax: 45 }
 ];
 
-let i = 0, j = 0, current = "", isDeleting = false;
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 const el = document.getElementById("typing");
 
-function type() {
-  current = texts[i];
-
-  if (isDeleting) {
-    j--;
-  } else {
-    j++;
-  }
-
-  el.textContent = current.substring(0, j);
-
-  if (!isDeleting && j === current.length) {
-    isDeleting = true;
-    setTimeout(type, 1000);
-    return;
-  } else if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % texts.length;
-  }
-
-  setTimeout(type, isDeleting ? 40 : 70);
+function playSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.value = 800;
+    gain.gain.value = 0.02;
+    osc.start();
+    osc.stop(ctx.currentTime + 0.02);
+  } catch (e) {}
 }
 
-type();
-</script>
+function randomSpeed(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+function typeLoop() {
+  const current = texts[textIndex];
+  const currentText = current.text;
+
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
+
+  el.innerHTML = currentText.substring(0, charIndex);
+  playSound();
+
+  // DIFFERENT SPEED PER SENTENCE
+  let speed = isDeleting
+    ? randomSpeed(current.delMin, current.delMax)
+    : randomSpeed(current.typeMin, current.typeMax);
+
+  if (!isDeleting && charIndex === currentText.length) {
+    speed = 900;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    speed = 400;
+  }
+
+  setTimeout(typeLoop, speed);
+}
+
+// moved to boot flow
+</script>
 </body>
 </html>
